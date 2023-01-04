@@ -35,18 +35,24 @@ Each line of the file corresponds to a process and consists of a space-separated
 ```process-id space file-id space file-id```
 
 where the first file-id is the file that the process has locked and the second file-id is the file requested by
-the process. You can assume that all process-ids will be distinct integers in the domain of [0, 232). You
-can assume that all file-ids will be integers in the domain of [0, 232).
+the process. You can assume that all process-ids will be distinct integers in the domain of [0, 232]. You
+can assume that all file-ids will be integers in the domain of [0, 232].
 Example: ```./detect -f resources.txt```
 The detection program is required to determine if there is a deadlock in the current resource allocation.
 For example resources.txt with the following information:
+
 0 1 3
+
 1 2 7
+
 describes a system where process 0 has locked file 1 and is waiting for file 3 while process 1 has locked
 file 2 and waiting for file 7.
 If resources.txt has the following information:
+
 0 1 2
+
 1 2 1
+
 then the system has processes 0 and 1, with locks on files 1 and 2, respectively. In addition, process 0
 requested file 2 while process 1 requested file 1. Hence, there is a deadlock.
 Each line (including the last) will be terminated with a LF (ASCII 0x0a) control character.
